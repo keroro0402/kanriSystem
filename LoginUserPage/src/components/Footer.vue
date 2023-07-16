@@ -1,19 +1,19 @@
 <script setup lang="ts">
-import { ref, reactive } from 'vue'
+import { ref, reactive } from 'vue';
 
 const copyRightInit = {
   site: 'Hiyokko',
   year: new Date().getFullYear(),
   copyRight: 'All Right Reserved',
-  space: ' '
-}
+  space: ' ',
+};
 const copyRight = ref(
   copyRightInit.site +
     copyRightInit.space +
     copyRightInit.year +
     copyRightInit.space +
     copyRightInit.copyRight
-)
+);
 </script>
 <template>
   <footer>
@@ -24,7 +24,7 @@ const copyRight = ref(
 footer {
   color: rgb(255, 255, 255, 255);
   background: rgb(128, 0, 0, 255);
-  padding: 1.2rem 0;
+  padding: 1rem 0;
 }
 footer p {
   text-align: center;
