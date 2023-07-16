@@ -29,5 +29,4 @@ footer {
 footer p {
   text-align: center;
 }
-/* 変更したよ！更新できてる？? */
 </style>
