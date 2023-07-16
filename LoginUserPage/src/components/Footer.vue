@@ -24,7 +24,7 @@ const copyRight = ref(
 footer {
   color: rgb(255, 255, 255, 255);
   background: rgb(128, 0, 0, 255);
-  padding: 1rem 0;
+  padding: 1.5rem 0;
 }
 footer p {
   text-align: center;
