@@ -1,47 +1,47 @@
 <script setup lang="ts">
-import { ref, reactive, onMounted } from 'vue'
+import { ref, reactive, onMounted } from 'vue';
 const formProperty = ref({
   action: '/loginuser/create',
-  method: 'POST'
-})
-const title = ref('ログインユーザ登録')
+  method: 'POST',
+});
+const title = ref('ログインユーザ登録');
 const idProperty = ref({
   type: 'text',
   id: 'loginUserId',
-  text: 'ID'
-})
+  text: 'ID',
+});
 const pwProperty = ref({
   type: 'text',
   id: 'loginUserPw',
-  text: 'PW'
-})
+  text: 'PW',
+});
 const buttonProperty = reactive({
   common: {
     type: 'submit',
-    name: 'submitButton'
+    name: 'submitButton',
   },
   registerButton: {
     text: '登録',
-    value: 'register'
+    value: 'register',
   },
   backButton: {
     text: '戻る',
-    value: 'back'
-  }
-})
+    value: 'back',
+  },
+});
 
 onMounted((): void => {
-  firstFocus()
-})
+  firstFocus();
+});
 function firstFocus() {
-  const targetEl = document.getElementById('loginUserId')
-  targetEl.focus()
+  const targetEl = document.getElementById('loginUserId');
+  targetEl.focus();
 }
 </script>
 <template>
   <section>
     <h1>{{ title }}</h1>
-    <form v-bind="formProperty">
+    <form v-bind="formProperty" action="/login">
       <table>
         <tr>
           <td>
@@ -65,7 +65,10 @@ function firstFocus() {
             >
               {{ buttonProperty.registerButton.text }}
             </button>
-            <button v-bind="buttonProperty.common" v-bind:value="buttonProperty.backButton.value">
+            <button
+              v-bind="buttonProperty.common"
+              v-bind:value="buttonProperty.backButton.value"
+            >
               {{ buttonProperty.backButton.text }}
             </button>
           </td>
