@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
-
-app.use('/assets', express.static(__dirname + '/dist/assets'));
+app.use(express.urlencoded({ extended: true }));
+app.use('/assets', express.static(__dirname + '/dist/assets')); // POSTされたフォームデータを受け取る
 
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/dist/index.html');
@@ -9,12 +9,13 @@ app.get('/', (req, res) => {
 
 // ログインページにアクセスした時の処理
 app.get('/login', (req, res) => {
-  res.sendFile(__dirname + '/dist/login.html');
+  res.sendFile(__dirname + '/dist/index.html');
 });
 
 // ログインページから送信した時の処理
 app.post('/login', (req, res) => {
-  console.log('POST送信しました');
+  console.log('reqの中身', req);
+  res.send(' 送信しました');
 });
 
 // サーバ待機処理 //
