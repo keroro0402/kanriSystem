@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { reactive } from 'vue'
+import { reactive } from 'vue';
+import img from '/public/Piyoko.png';
 
 const HeaderTitle = reactive({
   siteTitle: 'Hiyokko',
-  icon: './src/assets/Piyoko.png'
-})
+  icon: img,
+});
 </script>
 <template>
   <header>
