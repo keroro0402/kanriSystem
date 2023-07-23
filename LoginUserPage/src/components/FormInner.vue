@@ -35,7 +35,9 @@ onMounted((): void => {
 });
 function firstFocus() {
   const targetEl = document.getElementById('loginUserId');
-  targetEl.focus();
+  if (targetEl != null) {
+    targetEl.focus();
+  }
 }
 </script>
 <template>
@@ -60,15 +62,12 @@ function firstFocus() {
         <tr>
           <td colspan="2">
             <button
-              v-bind="buttonProperty.common"
+              v-bind:object="buttonProperty.common"
               v-bind:value="buttonProperty.registerButton.value"
             >
               {{ buttonProperty.registerButton.text }}
             </button>
-            <button
-              v-bind="buttonProperty.common"
-              v-bind:value="buttonProperty.backButton.value"
-            >
+            <button v-bind:value="buttonProperty.backButton.value">
               {{ buttonProperty.backButton.text }}
             </button>
           </td>
