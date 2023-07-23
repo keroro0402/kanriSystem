@@ -8,11 +8,13 @@ const title = ref('ログインユーザ登録');
 const idProperty = ref({
   type: 'text',
   id: 'loginUserId',
+  name: 'loginUserId',
   text: 'ID',
 });
 const pwProperty = ref({
   type: 'text',
   id: 'loginUserPw',
+  name: 'loginUserPw',
   text: 'PW',
 });
 const buttonProperty = reactive({
@@ -43,20 +45,28 @@ function firstFocus() {
 <template>
   <section>
     <h1>{{ title }}</h1>
-    <form v-bind="formProperty" action="/login">
+    <form v-bind="formProperty" action="/createUserData" method="POST">
       <table>
         <tr>
           <td>
             <label v-bind:for="idProperty.id">{{ idProperty.text }}</label
             >：
-            <input v-bind:type="idProperty.type" v-bind:id="idProperty.id" />
+            <input
+              v-bind:type="idProperty.type"
+              v-bind:id="idProperty.id"
+              v-bind:name="idProperty.name"
+            />
           </td>
         </tr>
         <tr>
           <td>
             <label v-bind:for="pwProperty.id">{{ pwProperty.text }}</label
             >：
-            <input v-bind:type="pwProperty.type" v-bind:id="pwProperty.id" />
+            <input
+              v-bind:type="pwProperty.type"
+              v-bind:id="pwProperty.id"
+              v-bind:name="pwProperty.name"
+            />
           </td>
         </tr>
         <tr>
@@ -67,7 +77,10 @@ function firstFocus() {
             >
               {{ buttonProperty.registerButton.text }}
             </button>
-            <button v-bind:value="buttonProperty.backButton.value">
+            <button
+              onclick="history.back()"
+              v-bind:value="buttonProperty.backButton.value"
+            >
               {{ buttonProperty.backButton.text }}
             </button>
           </td>
