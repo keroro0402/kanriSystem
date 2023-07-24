@@ -25,7 +25,7 @@ mongoose
 const Schema = mongoose.Schema;
 const UserSchema = new Schema({
   loginUserId: {
-    // キー名はフォームのname属性と同じにするべし
+    // キー名はフォームのname属性と同じにするべし!
     type: 'string',
     require: true,
   },
