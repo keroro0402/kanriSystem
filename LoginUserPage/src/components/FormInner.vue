@@ -45,7 +45,7 @@ function firstFocus() {
 <template>
   <section>
     <h1>{{ title }}</h1>
-    <form v-bind="formProperty" action="/createUserData" method="POST">
+    <form v-bind="formProperty" action="/create/user" method="POST">
       <table>
         <tr>
           <td>

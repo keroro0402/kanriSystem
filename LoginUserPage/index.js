@@ -34,12 +34,12 @@ app.get('/', (req, res) => {
 });
 
 // ユーザ登録ページにアクセスした時の処理
-app.get('/createUserData', (req, res) => {
+app.get('/create/user', (req, res) => {
   res.sendFile(__dirname + '/dist/index.html');
 });
 
 // ユーザ登録ページから送信した時の処理
-app.post('/createUserData', (req, res) => {
+app.post('/create/user', (req, res) => {
   UserModel.create(req.body)
     .then((data) => {
       console.log('データの書き込みが成功しました');
