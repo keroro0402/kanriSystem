@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { reactive } from 'vue';
-import img from '/public/Piyoko.png';
+import img from '@/assets/Piyoko.png';
 
 const HeaderTitle = reactive({
   siteTitle: 'Hiyokko',
