@@ -26,12 +26,13 @@ const Schema = mongoose.Schema;
 const UserSchema = new Schema({
   loginUserId: {
     // キー名はフォームのname属性と同じにするべし!
-    type: 'string',
-    require: true,
+    type: 'string', // データ型指定
+    required: true, // 必須
+    unique: true, // 唯一
   },
   loginUserPw: {
     type: 'string',
-    require: true,
+    required: true,
   },
 });
 
@@ -47,15 +48,20 @@ app.get('/create/user', (req, res) => {
 
 // ユーザ登録ページから送信した時の処理
 app.post('/create/user', (req, res) => {
-  UserModel.create(req.body)
-    .then((data) => {
-      console.log('データの書き込みが成功しました');
-      res.send('Userデータの送信が成功しました');
-    })
-    .catch((error) => {
-      console.error('データの書き込みが失敗しました');
-      res.send('Userデータの送信が失敗しました');
-    });
+  const result = UserModel.findOne({ loginUserId: req.body.loginUserId });
+  result.then((data) => {
+    if (data) {
+      console.log('登録済みのIDなのでできません');
+      res.sendFile(__dirname + '/dist/index.html');
+    } else {
+      console.log('登録できます');
+      const d = UserModel.create(req.body);
+      d.then((data) => {
+        console.log('登録しました');
+        res.send('登録できました！！！');
+      });
+    }
+  });
 });
 
 // サーバ待機処理 //

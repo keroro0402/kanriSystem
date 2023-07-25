@@ -52,6 +52,7 @@ function firstFocus() {
             <label v-bind:for="idProperty.id">{{ idProperty.text }}</label
             >：
             <input
+              required
               v-bind:type="idProperty.type"
               v-bind:id="idProperty.id"
               v-bind:name="idProperty.name"
@@ -63,6 +64,7 @@ function firstFocus() {
             <label v-bind:for="pwProperty.id">{{ pwProperty.text }}</label
             >：
             <input
+              required
               v-bind:type="pwProperty.type"
               v-bind:id="pwProperty.id"
               v-bind:name="pwProperty.name"
