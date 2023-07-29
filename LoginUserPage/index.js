@@ -16,7 +16,7 @@ mongoose
       '?retryWrites=true&w=majority'
   )
   .then(() => {
-    console.log('MongoDBと接続できました〜〜');
+    console.log('MongoDBと接続できましたん');
   })
   .catch((error) => {
     console.error('MongoDBと接続できませんでした・・・');
