@@ -58,7 +58,7 @@ app.post('/create/user', (req, res) => {
       const d = UserModel.create(req.body);
       d.then((data) => {
         console.log('登録しました');
-        res.send('登録できました！！！');
+        res.send('登録できました');
       });
     }
   });
@@ -66,5 +66,5 @@ app.post('/create/user', (req, res) => {
 
 // サーバ待機処理 //
 app.listen(5100, () => {
-  console.log('5100番で準備が出来また。5100にアクセスしてみてください。');
+  console.log('5100番で準備が出来ました。5100にアクセスできます。');
 });
